@@ -12,7 +12,8 @@ from linebot.models import *
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('kZ6YwSKvur7XlUClTmKs2sTHY9oLDwwsKWOjStZl2R1p+mUp6GQEqY9mNdiECdvxOLiUdSSRPArF2L4ysXzp+zzUxBqy8KI6Q6K9u5VNBgvH36yfypx5a7YiELmZ29pcSdHUCUhgJOmoguQ9eP+86QdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('DpW4/GRu1Y59dOpavu/dLJoq281WnY45f/VFwS7O+USrm1ZOJ3KLKhb439ffrmmxOLiUdSSRPArF2L4ysXzp+zzUxBqy8KI6Q6K9u5VNBgunyqWdDko2/GIeCMyBqG6VL14EiWGsAvCD0MbSZ7LU+wdB04t89/1O/w1cDnyilFU=
+')
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('f5be9869a7b4a57c91feca935b11d3ff')
 
@@ -32,7 +33,7 @@ def callback():
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
-        abort(200)
+        abort(400)
 
     return 'OK'
 
